@@ -19,12 +19,15 @@ class CoverLetter:
             'template': self.template
         }
 
-    def fill_template(self) -> str:
+    def fill_template(self, company : str = "[Company Name]",
+                      job : str = "[Job Title]",
+                      referer : str = "[Referral Source",
+                      applicant : str = "[Applicant Name]",) -> str:
         txt = self.template
-        rep = {"[Company Name]": self.company_name, 
-               "[Job Title]": self.job_title,
-               "[Referral Source]": self.referer,
-               "[Applicant Name]": self.applicant_name}
+        rep = {company: self.company_name,
+               job: self.job_title,
+               referer: self.referer,
+               applicant: self.applicant_name}
         # replacement
         rep = dict((re.escape(k), v) for k, v in rep.items()) 
         pattern = re.compile("|".join(rep.keys()))
