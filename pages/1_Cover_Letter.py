@@ -36,6 +36,6 @@ cl.template = st.text_area("Company Name", value=cl.settings['template'],
 st.download_button("Save Input Values", data=cl.export_to_json(), file_name="cover_letter_settings.json", mime="application/json")
 
 # Fill template button
-fill_btn = st.button("Fill Cover Letter Template")
+fill_btn = st.button("Fill Cover Letter Template", type="primary")
 if fill_btn:
     st.text(cl.fill_template())
