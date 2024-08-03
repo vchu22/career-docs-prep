@@ -8,7 +8,6 @@ class CoverLetter:
         self.referer = ""
         self.applicant_name = ""
         self.template = ""
-
         self.update_settings()
     
     def update_settings(self) -> None:
@@ -26,7 +25,6 @@ class CoverLetter:
                "[Job Title]": self.job_title,
                "[Referral Source]": self.referer,
                "[Applicant Name]": self.applicant_name}
-
         # replacement
         rep = dict((re.escape(k), v) for k, v in rep.items()) 
         pattern = re.compile("|".join(rep.keys()))
@@ -37,12 +35,6 @@ class CoverLetter:
         self.update_settings()
         return json.dumps(self.settings)
     
-    # def import_from_file(self, bytes_data : bytes) -> json:
-    #     print("import")
-    #     self.settings = json.loads(bytes_data.decode('utf-8'))
-    #     # self.company_name = json_data['company_name']
-    #     # self.job_title = json_data['job_title']
-    #     # self.referer = json_data['referer']
-    #     # self.template = json_data['template']
-    #     return self.settings
-    #     print("load finished")
+    def import_from_file(self, bytes_data : bytes) -> json:
+        self.settings = json.loads(bytes_data.decode('utf-8'))
+        return self.settings

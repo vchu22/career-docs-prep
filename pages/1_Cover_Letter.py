@@ -12,30 +12,25 @@ st.title("Cover Letter Prep")
 st.divider()
 
 # Load Input Values
-# cl_settings_file = st.file_uploader("Choose a JSON file to load input values")
-# if cl_settings_file is not None:
-#     # File is read as bytes:
-#     bytes_data = cl_settings_file.getvalue()
-#     json_data = cl.import_from_file(bytes_data)
+cl_settings_file = st.file_uploader("Choose a JSON file to load input values")
+if cl_settings_file is not None:
+    # File is read as bytes:
+    bytes_data = cl_settings_file.getvalue()
+    json_data = cl.import_from_file(bytes_data)
 
 # Input fields
 col1, col2 = st.columns(2)
 
 with col1:
-    company_name = st.text_input("Company Name")
-    cl.company_name = company_name
-    job_title = st.text_input("Job Title")
-    cl.job_title = job_title
+    cl.company_name = st.text_input("Company Name", value=cl.settings['company_name'])
+    cl.job_title = st.text_input("Job Title", value=cl.settings['job_title'])
 
 with col2:
-    referer = st.text_input("Referral Source")
-    cl.referer = referer
-    applicant_name = st.text_input("Applicant Name")
-    cl.applicant_name = applicant_name
+    cl.referer = st.text_input("Referral Source", value=cl.settings['referer'])
+    cl.applicant_name = st.text_input("Applicant Name", value=cl.settings['applicant_name'])
 
-cover_letter_templete = st.text_area("Cover Letter Template", height=360,
-                                     placeholder=template_instruction)
-cl.template = cover_letter_templete
+cl.template = st.text_area("Company Name", value=cl.settings['template'],
+                               height=360, placeholder=template_instruction)
 
 # Save Button
 st.download_button("Save Input Values", data=cl.export_to_json(), file_name="cover_letter_settings.json", mime="application/json")
