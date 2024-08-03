@@ -11,7 +11,8 @@ template_instruction = """ Please use these template tags when writing your cove
 st.title("Cover Letter Prep")
 st.divider()
 
-# cl_settings_file = st.file_uploader("Choose a file")
+# Load Input Values
+# cl_settings_file = st.file_uploader("Choose a JSON file to load input values")
 # if cl_settings_file is not None:
 #     # File is read as bytes:
 #     bytes_data = cl_settings_file.getvalue()
@@ -23,7 +24,6 @@ col1, col2 = st.columns(2)
 with col1:
     company_name = st.text_input("Company Name")
     cl.company_name = company_name
-    print(cl.company_name)
     job_title = st.text_input("Job Title")
     cl.job_title = job_title
 

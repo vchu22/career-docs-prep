@@ -9,17 +9,16 @@ class CoverLetter:
         self.applicant_name = ""
         self.template = ""
 
-        self.settings_json : dict = self.create_dict()
+        self.update_settings()
     
-    def create_dict(self) -> dict:
-        data = {
+    def update_settings(self) -> None:
+        self.settings = {
             'company_name': self.company_name,
             'job_title': self.job_title,
             'referer': self.referer,
             'applicant_name': self.applicant_name,
             'template': self.template
         }
-        return data
 
     def fill_template(self) -> str:
         txt = self.template
@@ -35,15 +34,15 @@ class CoverLetter:
         return txt
     
     def export_to_json(self) -> str:
-        self.settings_json = self.create_dict()
-        return json.dumps(self.settings_json)
+        self.update_settings()
+        return json.dumps(self.settings)
     
     # def import_from_file(self, bytes_data : bytes) -> json:
     #     print("import")
-    #     self.settings_json = json.loads(bytes_data.decode('utf-8'))
+    #     self.settings = json.loads(bytes_data.decode('utf-8'))
     #     # self.company_name = json_data['company_name']
     #     # self.job_title = json_data['job_title']
     #     # self.referer = json_data['referer']
     #     # self.template = json_data['template']
-    #     return self.settings_json
+    #     return self.settings
     #     print("load finished")
