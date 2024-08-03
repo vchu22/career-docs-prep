@@ -37,5 +37,7 @@ st.download_button("Save Input Values", data=cl.export_to_json(), file_name="cov
 
 # Fill template button
 fill_btn = st.button("Fill Cover Letter Template", type="primary")
+
 if fill_btn:
-    st.text(cl.fill_template())
+    res_text = cl.fill_template()
+    st.text_area("Cover Letter", value=res_text, height=360)
