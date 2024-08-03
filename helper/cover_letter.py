@@ -1,6 +1,19 @@
 import re
 import json
 
+template_instructions = """ Below are the default field tags for cover letter templete:
+            Company Name: [Company Name], 
+            Job Title: [Job Title],
+            Referral/Where did you find this job: [Referral Source],
+            Applicant/Your Name: [Applicant Name]
+            
+If you want to customize tag names, select 'Yes' for the above question.
+
+If copying from the cover letter of a previous application, you can also use the functionality to replace words.
+    For example, you can fill in:
+        Company Name: Google,
+        Company Name Tag: Meta"""
+
 class CoverLetter:
     def __init__(self) -> None:
         self.company_name = ""
@@ -19,10 +32,10 @@ class CoverLetter:
             'template': self.template
         }
 
-    def fill_template(self, company : str = "[Company Name]",
-                      job : str = "[Job Title]",
-                      referer : str = "[Referral Source",
-                      applicant : str = "[Applicant Name]",) -> str:
+    def fill_template(self, company = "[Company Name]",
+                      job = "[Job Title]",
+                      referer = "[Referral Source",
+                      applicant = "[Applicant Name]",) -> str:
         txt = self.template
         rep = {company: self.company_name,
                job: self.job_title,
