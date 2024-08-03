@@ -29,7 +29,7 @@ with col2:
     cl.referer = st.text_input("Referral Source", value=cl.settings['referer'])
     cl.applicant_name = st.text_input("Applicant Name", value=cl.settings['applicant_name'])
 
-cl.template = st.text_area("Company Name", value=cl.settings['template'],
+cl.template = st.text_area("Cover Letter Template", value=cl.settings['template'],
                                height=360, placeholder=template_instruction)
 
 # Save Button
