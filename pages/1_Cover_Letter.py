@@ -35,7 +35,7 @@ if custom_tags:
         job_tag = st.text_input("Job Title Tag", value="[Job Title]")
 
     with col2:
-        referer_tag = st.text_input("Referral Source Tag", value="[Referral Source")
+        referer_tag = st.text_input("Referral Source Tag", value="[Referral Source]")
         applicant_tag = st.text_input("Applicant Name Tag", value="[Applicant Name]")
 
 cl.template = st.text_area("Cover Letter Template", value=cl.settings['template'],
