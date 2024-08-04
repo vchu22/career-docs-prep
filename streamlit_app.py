@@ -20,5 +20,7 @@ st.markdown(
     - Replace the names on your previous cover letter with new ones
     ### Resume
     - Working in progress 🚧
+    ### Job Description Analyzer
+    - Working in progress 🚧
 """
 )
