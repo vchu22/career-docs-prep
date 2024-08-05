@@ -1,11 +1,21 @@
 import streamlit as st
 from helper.cover_letter import CoverLetter, template_instructions
+from helper.page_helper import create_row
 
 # declare variables
 cl = CoverLetter()
 # Start of page
 st.title("Cover Letter Prep")
 st.divider()
+
+# Test create_row helper function
+# create_row(2, 2, [
+#             [st.text_input, st.text_input],
+#             [st.text_input, st.text_input]
+#         ], [
+#         [("Test", "value="), ("Test1", "value")],
+#         [("Test2", "value"), ("Test3")]
+#     ])
 
 # Load Input Values
 cl_settings_file = st.file_uploader("Choose a JSON file to load input values")
