@@ -54,3 +54,12 @@ class CoverLetter:
     def import_from_file(self, bytes_data : bytes) -> json:
         self.settings = json.loads(bytes_data.decode('utf-8'))
         return self.settings
+    
+    def reset_fields(self, calllback=None):
+        self.company_name = ""
+        self.job_title = ""
+        self.referer = ""
+        self.applicant_name = ""
+        self.template = ""
+        if calllback != None:
+            calllback()
