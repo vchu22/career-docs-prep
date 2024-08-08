@@ -10,7 +10,7 @@ A simple web interface to help reduce mistakes when writing cover letters and re
 1. Install the requirements
 
    ```
-   $ pip install -r requirements.txtv   ```
+   $ pip install -r requirements.txt   ```
 
 2. Run the app
 
